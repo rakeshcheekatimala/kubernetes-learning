@@ -52,3 +52,43 @@ port is mandatory, targetPort if skipped will be same as port.
 Exposed Service Url
 
 minikube service myapp-service --url 
+
+# Create pod defintion for the inline image 
+
+```
+    kubectl run redis --image=redis --dry-run=client -o yaml > redis.yaml
+```
+
+Useful Tip
+
+```
+kubectl create command name --dry-run -o json/yaml
+```
+
+Output with wide (additional details):
+
+Probably the most common format used to print additional details about the object:
+
+To create pod in different namespace 
+
+```
+kubectl create deployment name --namespace=dev
+```
+
+To set the context for namespace 
+
+```
+kubectl config set-context $(kubectl config current-context) --namespace=dev
+```
+
+Short form of namespace is ns 
+
+How to access service from one namespace to another namespace 
+
+db-service.dev.svc.cluster.local
+
+How to create pod defintion file for the image 
+
+```
+kubectl run redis --image=redis --dry-run=client -o yaml > redis-pod.yaml
+```
